@@ -94,16 +94,16 @@ def fetchdata():
     cursor = db_conn.cursor()
     cursor.execute("SELECT * FROM employee WHERE emp_id = %s", (emp_id,))
     result = cursor.fetchone()
+    cursor.close()
     if result is not None:
         emp_data = {
             'id': result[0],
             'fname': result[1],
             'lname': result[2],
-            'interest': result[3],
+            'pri_skill': result[3],
             'location': result[4],
             'payscale': result[5],
-            'hiredate': result[6],
-            'image_url': result[7]
+            'hiredate': result[6]
         }
         return render_template('GetEmpOutput.html', **emp_data)
 
