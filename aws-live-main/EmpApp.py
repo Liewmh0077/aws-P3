@@ -23,15 +23,23 @@ table = 'employee'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    return render_template('home.html')
+
+@app.route("/add", methods=['GET', 'POST'])
+def add():
     return render_template('AddEmp.html')
+
+@app.route("/delete", methods=['GET', 'POST'])
+def delete():
+    return render_template('DeleteEmp.html')
 
 
 @app.route("/about", methods=['GET','POST'])
 def about():
     return render_template('AboutUs.html')
 
-@app.route("/back", methods=['GET', 'POST'])
-def back():
+@app.route("/get", methods=['GET', 'POST'])
+def get():
     return render_template('GetEmp.html')
 
 
